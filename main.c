@@ -8,7 +8,7 @@
 #define CELL_SIZE 50
 #define GRID_PADDING 20
 #define SCREEN_WIDTH (2 * GRID_PADDING + GRID_SIZE * CELL_SIZE + 200)  // Extra space for UI
-#define SCREEN_HEIGHT (2 * GRID_PADDING + GRID_SIZE * CELL_SIZE + 100) // Extra space for blocks selection
+#define SCREEN_HEIGHT (2 * GRID_PADDING + GRID_SIZE * CELL_SIZE + 150) // Extra space for blocks selection
 
 // Structure for block shapes
 typedef struct {
@@ -310,7 +310,7 @@ void UpdateGame(GameState *game)
     if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         // Check if clicking on one of the three blocks at bottom
         for (int i = 0; i < 3; i++) {
-            int blockX = GRID_PADDING + CELL_SIZE * (i * 4 + 1);
+            int blockX = GRID_PADDING-90 + CELL_SIZE * (i * 4 + 1);
             int blockY = SCREEN_HEIGHT - CELL_SIZE * 2;
             int blockWidth = CELL_SIZE * 3;
             int blockHeight = CELL_SIZE;
@@ -408,7 +408,7 @@ void DrawGame(GameState *game)
     
     // Draw the three available blocks
     for (int i = 0; i < 3; i++) {
-        int blockX = GRID_PADDING + CELL_SIZE * (i * 4 + 1);
+        int blockX = GRID_PADDING-90 + CELL_SIZE * (i * 4 + 1);
         int blockY = SCREEN_HEIGHT - CELL_SIZE * 2;
         
         DrawBlockShape(game->currentBlocks[i], blockX, blockY, false);
